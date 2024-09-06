@@ -166,18 +166,18 @@ All other servers respond by sending `client_update`
 ### Defintion Tables of Types and Sections and additonal explanations
 
 #### tables
-| Type | Type Meaning |
-|:----:|:------------:| 
+| Type | Type Meaning |  sender | recipient |
+|:----:|:------------:| :---:| :---:|
 | signed_data| data that has a signature confirming the sender|
 | client_list_request | request sent by client, to get the list of clients online connected to a server |
 | client_update | update send by server letting clients know who has disconnected |
 | client_list | reply by server to client_List_request which contains list of users online |
 | client_update_request | server asking other servers for the client_update |
 
-|different types in the data section | meaning |
-| :-----: | :----: |
+|different types in the data section | meaning | sender | recipient |
+| :-----: | :----: | :---:| :---:|
 | chat | message that has chat message data in it |
-| hello | message sent when client connects to a server |
+| hello | message sent when client connects to a server | client
 | public_chat | message sent to every one connected in the neighbourhood and homeServer not encrypted |
 
 #### Counter
