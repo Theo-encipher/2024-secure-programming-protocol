@@ -169,16 +169,16 @@ All other servers respond by sending `client_update`
 | Type | Type Meaning |  sender | recipient |
 |:----:|:------------:| :---:| :---:|
 | signed_data| data that has a signature confirming the sender|
-| client_list_request | request sent by client, to get the list of clients online connected to a server |
-| client_update | update send by server letting clients know who has disconnected |
-| client_list | reply by server to client_List_request which contains list of users online |
-| client_update_request | server asking other servers for the client_update |
+| client_list_request | request sent by client, to get the list of clients online connected to a server | client | server |
+| client_update | update send by server letting clients know who has disconnected | server |  client |
+| client_list | reply by server to client_List_request which contains list of users online | server | client |
+| client_update_request | server asking other servers for the client_update | server | server
 
 |different types in the data section | meaning | sender | recipient |
 | :-----: | :----: | :---:| :---:|
-| chat | message that has chat message data in it |
-| hello | message sent when client connects to a server | client
-| public_chat | message sent to every one connected in the neighbourhood and homeServer not encrypted |
+| chat | message that has chat message data in it | client |
+| hello | message sent when client connects to a server | client | server |
+| public_chat | message sent to every one connected in the neighbourhood and homeServer not encrypted | client | client |
 
 #### Counter
 Every message sent by user, tied to their unique key set, has the counter attached to it. The recipient stores the counter value from the latest message sent to them by each user, then when ever a new message received, the counter value stored is compared to the value in the message. If the new value is larger than the old one, the message has not been resent. The starting value of the count will be 0.
